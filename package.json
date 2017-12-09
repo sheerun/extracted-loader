@@ -10,5 +10,15 @@
     "url": "git://github.com/sheerun/extracted-loader.git"
   },
   "author": "sheerun",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [
+    "webpack",
+    "loader",
+    "css",
+    "scss",
+    "styles",
+    "stylesheets",
+    "hotreload",
+    "next.js"
+  ]
 }
