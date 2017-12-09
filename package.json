@@ -1,6 +1,6 @@
 {
   "name": "extracted-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reloads stylesheets extracted with with ExtractTextPlugin",
   "main": "index.js",
   "files": ["index.js"],
