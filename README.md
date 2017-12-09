@@ -3,7 +3,9 @@
 [npm-image]: http://img.shields.io/npm/v/extracted-loader.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/extracted-loader
 
-It reloads extracted stylesheets extracted with `ExtractTextPlugin`. No configuration needed. A better [css-hot-loader](https://github.com/shepherdwind/css-hot-loader).
+It reloads extracted stylesheets extracted with `ExtractTextPlugin`.
+
+No configuration needed. A better [css-hot-loader](https://github.com/shepherdwind/css-hot-loader).
 
 ## Use case
 
@@ -78,7 +80,11 @@ config.plugins.push(new ExtractTextPlugin('index.css'))
 
 ## How it works
 
-By reloading all relevant <link> on the page when extracted text changes.
+By reloading all relevant `<link rel="stylesheet">` when extracted text changes.
+
+## Contributing
+
+Yes, please
 
 ## License
 
