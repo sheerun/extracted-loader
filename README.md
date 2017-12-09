@@ -1,5 +1,6 @@
 # extracted-loader [![NPM version][npm-image]][npm-url]
 
+[npm-image]: http://img.shields.io/npm/v/extracted-loader.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/extracted-loader
 
 It reloads extracted stylesheets extracted with `ExtractTextPlugin`. No configuration needed. A better [css-hot-loader](https://github.com/shepherdwind/css-hot-loader).
