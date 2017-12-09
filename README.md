@@ -28,9 +28,9 @@ And then you can use it for example as so:
 ```js
 config.module.rules.push({
   test: /\.css$/,
-  use: ['extracted-loader', ExtractTextPlugin.extract({
+  use: ['extracted-loader'].concat(ExtractTextPlugin.extract({
     /* Your configuration here */
-  })]
+  }))
 })
 
 config.plugins.push(new ExtractTextPlugin('index.css'))
