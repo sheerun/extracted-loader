@@ -1,0 +1,14 @@
+{
+  "name": "extracted-loader",
+  "version": "1.0.0",
+  "description": "Reloads stylesheets extracted with with ExtractTextPlugin",
+  "main": "index.js",
+  "files": ["index.js"],
+  "homepage": "https://github.com/sheerun/extracted-loader",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sheerun/extracted-loader.git"
+  },
+  "author": "sheerun",
+  "license": "MIT"
+}
