@@ -9,7 +9,7 @@ No configuration needed. A better [css-hot-loader](https://github.com/shepherdwi
 
 ## Use case
 
-When you change stylesheets, you want only stylesheets to reload, not the whole page.
+You want to hot reload only stylesheets, not the whole page. Great for editing dynamic views.
 
 ## Installation
 
