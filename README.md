@@ -1,4 +1,4 @@
-# extracted-loader [![NPM version][npm-image]][npm-url]
+# extracted-loader [![NPM version][npm-image]][npm-url] <img align="right" width="200" src="https://i.imgur.com/hBxPotS.png">
 
 [npm-image]: http://img.shields.io/npm/v/extracted-loader.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/extracted-loader
