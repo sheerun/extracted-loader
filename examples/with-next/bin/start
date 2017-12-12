@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+const express = require('express')
+const next = require('next')
+const fs = require('fs')
+const path = require('path')
+const compression = require('compression')
+
+const port = parseInt(process.env.PORT, 10) || 3000
+const dev = process.env.NODE_ENV === 'development'
+const app = next({ dev })
+const handle = app.getRequestHandler()
+const rootDir = path.resolve(__dirname, '..')
+
+app.prepare().then(() => {
+  const server = express()
+
+  server.use(compression())
+
+  const outDir = path.resolve(rootDir, 'out')
+  if (fs.existsSync(outDir)) {
+    server.use('/', express.static(outDir))
+  }
+
+  const dynamicStatic = path.resolve(rootDir, '.static')
+  if (fs.existsSync(dynamicStatic)) {
+    server.use('/static', express.static(dynamicStatic))
+  }
+
+  server.get('*', (req, res) => {
+    return handle(req, res)
+  })
+
+  server.listen(port, err => {
+    if (err) throw err
+    console.log(`> Ready on http://localhost:${port}`)
+  })
+})

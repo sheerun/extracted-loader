@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+const path = require('path')
+const fs = require('fs-extra')
+
+console.log('Bundling static files to output directory')
+
+const outDir = path.resolve(__dirname, '../out/static')
+const staticDir = path.resolve(__dirname, '../.next/.static')
+
+async function main () {
+  await fs.copy(staticDir, path.join(outDir))
+}
+
+main()
