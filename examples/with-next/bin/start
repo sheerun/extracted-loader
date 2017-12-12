@@ -23,9 +23,7 @@ app.prepare().then(() => {
   }
 
   const dynamicStatic = path.resolve(rootDir, '.static')
-  if (fs.existsSync(dynamicStatic)) {
-    server.use('/static', express.static(dynamicStatic))
-  }
+  server.use('/static', express.static(dynamicStatic))
 
   server.get('*', (req, res) => {
     return handle(req, res)
