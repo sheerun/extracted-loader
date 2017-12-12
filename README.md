@@ -82,6 +82,10 @@ config.plugins.push(new ExtractTextPlugin('index.css'))
 
 By reloading all relevant `<link rel="stylesheet">` when extracted text changes.
 
+## How to use with...
+
+- [next.js](https://github.com/sheerun/extracted-loader/tree/master/examples/with-next)
+
 ## Contributing
 
 Yes, please
