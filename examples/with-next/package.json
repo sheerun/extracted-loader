@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "node bin/start",
-    "build": "next build && next export && node bin/bundle",
-    "export": "",
+    "build": "NODE_ENV=production next build && next export && node bin/bundle",
     "start": "cross-env NODE_ENV=production node bin/start"
   },
   "author": "Adam Stankiewicz <sheerun@sher.pl>",
