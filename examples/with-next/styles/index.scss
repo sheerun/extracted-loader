@@ -1,0 +1,10 @@
+@import "~bulma/sass/utilities/initial-variables";
+$primary: #3E3C3D;
+$info: $grey;
+
+@import "~bulma";
+
+.hero {
+  background-image: url("./background.jpg");
+  min-height: 100vh;
+}
