@@ -1,3 +1,7 @@
+# 1.0.3
+
+Fix hot reloading on pages other than index
+
 # 1.0.2
 
 Final documentation update (to show it on npmjs.org)

@@ -17,10 +17,11 @@ module.exports = function(source) {
       if (window.__webpack_reload_css__) {
         module.hot.__webpack_reload_css__ = false;
         console.log("[HMR] Reloading stylesheets...");
+        var prefix = document.location.protocol + '//' + document.location.host;
         document
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
-            if (!link.href.match(document.location.href)) return;
+            if (!link.href.match(prefix)) return;
             injectCss(link, link.href.split("?")[0] + "?unix=${+new Date()}");
           });
       }
