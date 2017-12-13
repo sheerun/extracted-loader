@@ -1,31 +1,43 @@
 import React from 'react'
-import FaGithub from 'react-icons/lib/fa/github'
+import FaPencil from 'react-icons/lib/fa/pencil'
+
+import Link from './link'
 
 export default () => (
   <nav className='navbar'>
     <div className='container'>
       <div className='navbar-brand'>
-        <a className='navbar-item'>
-          <img src={require('../static/logo.png')} alt='Logo' />
-        </a>
-        <span className='navbar-burger burger' data-target='navbarMenuHeroB'>
+        <Link href='/'>
+          <a className='navbar-item'>
+            <img src={require('../static/logo.png')} alt='Logo' />
+          </a>
+        </Link>
+        <span className='navbar-burger burger' data-target='navbarMenuHero'>
           <span />
           <span />
           <span />
         </span>
       </div>
-      <div id='navbarMenuHeroB' className='navbar-menu'>
+      <div id='navbarMenuHero' className='navbar-menu'>
         <div className='navbar-end'>
-          <a className='navbar-item is-active'>Home</a>
-          <a className='navbar-item'>Examples</a>
-          <a className='navbar-item'>Documentation</a>
+          <Link href='/'>
+            <a className='navbar-item'>Home</a>
+          </Link>
+          <Link href='/examples/'>
+            <a className='navbar-item'>Examples</a>
+          </Link>
+          <Link href='/docs/'>
+            <a className='navbar-item'>Documentation</a>
+          </Link>
           <span className='navbar-item'>
-            <a className='button is-info is-inverted'>
-              <span className='icon'>
-                <FaGithub />
-              </span>
-              <span>Download</span>
-            </a>
+            <Link href='/editor/'>
+              <a className='button is-info is-inverted'>
+                <span className='icon'>
+                  <FaPencil />
+                </span>
+                <span>Editor</span>
+              </a>
+            </Link>
           </span>
         </div>
       </div>

@@ -17,6 +17,17 @@ export default class Index extends React.Component {
     this.setState({ name: 'browser' })
   }
 
+  page () {
+    switch (this.props.url.query.id) {
+      case 'docs':
+        return 'Documentation'
+      case 'examples':
+        return 'Examples'
+      default:
+        return 'Home'
+    }
+  }
+
   render () {
     return (
       <Page>
@@ -26,7 +37,7 @@ export default class Index extends React.Component {
           </div>
           <div className='hero-body'>
             <div className='container has-text-centered'>
-              <p className='title'>Hello</p>
+              <p className='title'>{this.page()}</p>
               <p className='subtitle'>{this.state.name}</p>
             </div>
           </div>

@@ -1,8 +1,9 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const exportPathMap = require('./routes').exportPathMap
 
 module.exports = {
-  webpack: (config, { dev }) => {
+  webpack: (config, { buildId, dev }) => {
     config.module.rules.push({
       test: /\.((sa|sc|c)ss|jpg|png)$/,
       use: [
@@ -22,8 +23,8 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 10000,
-            name: '.static/[hash].[ext]',
-            outputPath: dev ? __dirname + '/' : undefined,
+            name: '.static/assets/[hash].[ext]',
+            outputPath: dev ? path.join(__dirname, '/') : undefined,
             publicPath: function (url) {
               return url.replace(/^.*.static/, '/static')
             }
@@ -50,7 +51,6 @@ module.exports = {
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: dev,
                 plugins: [
                   require('autoprefixer')({
                     /* options */
@@ -59,10 +59,7 @@ module.exports = {
               }
             },
             {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: dev
-              }
+              loader: 'sass-loader'
             }
           ]
         })
@@ -70,16 +67,16 @@ module.exports = {
     })
 
     config.plugins.push(
-      new ExtractTextPlugin(
-        dev ? path.join(__dirname, '.static/index.css') : '.static/index.css'
-      )
+      new ExtractTextPlugin({
+        filename: dev
+          ? path.join(__dirname, '.static/assets/index.css')
+          : '.static/assets/' + buildId + '.css',
+        allChunks: true
+      })
     )
 
     return config
   },
-  exportPathMap: function () {
-    return {
-      '/': { page: '/' }
-    }
-  }
+  useFileSystemPublicRoutes: false,
+  exportPathMap
 }
