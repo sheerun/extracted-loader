@@ -2,14 +2,13 @@ module.exports = function(source) {
   return source + `;
     if (module.hot) {
       var injectCss = function injectCss(prev, href) {
-        var link = document.createElement("link");
-        link.type = "text/css";
-        link.rel = "stylesheet";
+        var link = prev.cloneNode();
         link.href = href;
         link.onload = function() {
-          document.head.removeChild(prev);
+          prev.parentNode.removeChild(prev);
         };
-        document.head.appendChild(link);
+        prev.stale = true;
+        prev.parentNode.insertBefore(link, prev);
       };
       module.hot.dispose(function() {
         window.__webpack_reload_css__ = true;
@@ -21,7 +20,7 @@ module.exports = function(source) {
         document
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
-            if (!link.href.match(prefix)) return;
+            if (!link.href.match(prefix) || link.stale) return;
             injectCss(link, link.href.split("?")[0] + "?unix=${+new Date()}");
           });
       }
