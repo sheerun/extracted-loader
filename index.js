@@ -1,5 +1,7 @@
-module.exports = function(source) {
-  return source + `;
+module.exports = function (source) {
+  return (
+    source +
+    `;
     if (module.hot) {
       var injectCss = function injectCss(prev, href) {
         var link = prev.cloneNode();
@@ -26,4 +28,5 @@ module.exports = function(source) {
       }
     }
   `
-};
+  )
+}
