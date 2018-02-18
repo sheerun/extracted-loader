@@ -1,4 +1,8 @@
 module.exports = function (source) {
+  if (source.match('module.hot')) {
+    return source
+  }
+
   return (
     source +
     `;
