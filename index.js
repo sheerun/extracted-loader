@@ -6,15 +6,16 @@ module.exports = function (source) {
       var injectCss = function injectCss(prev, href) {
         var link = prev.cloneNode();
         link.href = href;
-        link.onload = function() {
+        link.onload = link.onerror = function() {
           prev.parentNode.removeChild(prev);
         };
         prev.stale = true;
-        prev.parentNode.insertBefore(link, prev);
+        prev.parentNode.insertBefore(link, prev.nextSibling);
       };
       module.hot.dispose(function() {
         window.__webpack_reload_css__ = true;
       });
+      module.hot.accept();
       if (window.__webpack_reload_css__) {
         module.hot.__webpack_reload_css__ = false;
         console.log("[HMR] Reloading stylesheets...");
