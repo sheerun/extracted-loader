@@ -23,7 +23,7 @@ module.exports = function (source) {
       if (window.__webpack_reload_css__) {
         module.hot.__webpack_reload_css__ = false;
         console.log("[HMR] Reloading stylesheets...");
-        var prefix = document.location.protocol + '//' + document.location.host;
+        var prefix = document.location.protocol + '//' + document.location.hostname;
         document
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
