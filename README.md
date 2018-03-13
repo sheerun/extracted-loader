@@ -26,9 +26,12 @@ yarn add extracted-loader --dev
 And then you can use it for example as so:
 
 ```js
+const isDev = process.env.NODE_ENV === 'development'
+
 config.module.rules.push({
   test: /\.css$/,
   use: ['extracted-loader'].concat(ExtractTextPlugin.extract({
+    filename: isDev ? "[name].css" : "[name].[contenthash].css",
     /* Your configuration here */
   }))
 })
@@ -36,6 +39,7 @@ config.module.rules.push({
 config.plugins.push(new ExtractTextPlugin('index.css'))
 ```
 
+For hot reloading to work it is important **to not** use `[contenthash]` in development configuration.
 
 ## Example use with sass
 
