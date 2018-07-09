@@ -53,15 +53,15 @@ config.module.rules.push({
         loader: 'css-loader',
         options: {
           url: true,
-          minimize: !dev,
-          sourceMap: dev,
+          minimize: !isDev,
+          sourceMap: isDev,
           importLoaders: 2
         }
       },
       {
         loader: 'postcss-loader',
         options: {
-          sourceMap: dev,
+          sourceMap: isDev,
           plugins: [
             require('autoprefixer')({
               /* options */
@@ -72,7 +72,7 @@ config.module.rules.push({
       {
         loader: 'sass-loader',
         options: {
-          sourceMap: dev
+          sourceMap: isDev
         }
       }
     ]
